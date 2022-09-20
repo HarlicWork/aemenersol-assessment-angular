@@ -13,12 +13,11 @@ import { AuthService } from './auth.service';
 export class AuthGuard implements CanActivate {
   constructor(private auth: AuthService, private router: Router) {}
 
-  canActivate(
-    route: ActivatedRouteSnapshot,
-    state: RouterStateSnapshot
-  ): Observable<boolean | UrlTree> {
-    return this.auth.isLogin$.pipe(
-      map(isLogin => isLogin ? true : this.router.parseUrl('/signup'))
-    );
+  canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot) {
+    if (this.auth.isUserTokenExist()) {
+      return true;
+    }
+
+    return this.router.parseUrl('/signup');
   }
 }

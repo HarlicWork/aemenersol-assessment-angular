@@ -37,6 +37,16 @@ export class AuthService {
       );
   }
 
+  isUserTokenExist() {
+    const token = localStorage.getItem('authToken');
+
+    if (token) {
+      return true;
+    } else {
+      return false;
+    }
+  }
+
   logout() {
     this.subject.next({ username: '', password: '' });
     localStorage.removeItem('authToken');

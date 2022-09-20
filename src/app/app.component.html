@@ -4,6 +4,7 @@
       <h1>AEM Enersol Assessment</h1>
     </a>
   </div>
+  <button *ngIf="auth.isUserTokenExist()" class="btn btn-outline-success m-3" type="submit" (click)="logout()">Logout</button>
 </nav>
 <div class="container-fluid py-5 d-flex justify-content-center">
   <router-outlet></router-outlet>
