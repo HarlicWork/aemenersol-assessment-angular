@@ -10,6 +10,8 @@ export class DashboardComponent implements OnInit {
   constructor(private auth: AuthService) {}
 
   ngOnInit() {
-    this.auth.getDashboardData().subscribe();
+    this.auth.getDashboardData().subscribe(data => {
+      console.log(data)
+    });
   }
 }

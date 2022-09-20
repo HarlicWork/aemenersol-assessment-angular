@@ -15,7 +15,6 @@ export class AppInterceptor implements HttpInterceptor {
   intercept(req: HttpRequest<any>, next: HttpHandler) {
     this.token = localStorage.getItem('authToken');
 
-    debugger;
     if (this.token) {
       const modifiedReqHeader = req.clone({
         headers: new HttpHeaders().set(
