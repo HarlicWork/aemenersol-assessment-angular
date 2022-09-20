@@ -1,10 +1,15 @@
-<nav class="navbar navbar-expand-sm navbar-light bg-light">
+<nav
+  *ngIf="auth.isUserTokenExist()"
+  class="navbar navbar-expand-sm navbar-dark bg-dark"
+>
   <div class="container-fluid">
     <a class="navbar-brand" routerLink="/">
-      <h1>AEM Enersol Assessment</h1>
+      <h1>Dashboard</h1>
     </a>
   </div>
-  <button *ngIf="auth.isUserTokenExist()" class="btn btn-outline-success m-3" type="submit" (click)="logout()">Logout</button>
+  <button class="btn btn-outline-success m-3" type="submit" (click)="logout()">
+    Logout
+  </button>
 </nav>
 <div class="container-fluid py-5 d-flex justify-content-center">
   <router-outlet></router-outlet>

@@ -5,6 +5,7 @@
 export const environment = {
   production: false,
   apiUrl: 'http://test-demo.aemenersol.com/api/account/login',
+  dashboardApi: 'http://test-demo.aemenersol.com/api/dashboard',
 };
 
 /*

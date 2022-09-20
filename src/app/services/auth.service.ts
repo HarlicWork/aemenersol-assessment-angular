@@ -11,13 +11,7 @@ export class AuthService {
   private subject = new BehaviorSubject<User>({ username: '', password: '' });
   user$: Observable<User> = this.subject.asObservable();
 
-  isLogin$: Observable<boolean>;
-  isLogout$: Observable<boolean>;
-
   constructor(private http: HttpClient) {
-    this.isLogin$ = this.user$.pipe(map((user) => !!user));
-    this.isLogout$ = this.isLogin$.pipe(map((login) => !login));
-
     const token = localStorage.getItem('authToken');
 
     if (token) {
@@ -50,5 +44,9 @@ export class AuthService {
   logout() {
     this.subject.next({ username: '', password: '' });
     localStorage.removeItem('authToken');
+  }
+
+  getDashboardData() {
+    return this.http.get(environment.dashboardApi);
   }
 }
