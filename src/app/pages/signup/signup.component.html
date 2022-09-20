@@ -1,0 +1,28 @@
+<div class="card">
+  <h5 class="card-header d-flex justify-content-center">
+    Sign in to your dashboard
+  </h5>
+  <div class="card-body">
+    <form [formGroup]="form" class="login-form">
+      <input
+        type="text"
+        class="form-control mt-2"
+        placeholder="Username"
+        formControlName="username"
+      />
+      <input
+        type="password"
+        class="form-control mt-3 mb-2"
+        placeholder="Password"
+        formControlName="password"
+      />
+      <button
+        class="btn btn-primary mt-2"
+        (click)="login()"
+        [disabled]="!form.valid"
+      >
+        SIGN IN
+      </button>
+    </form>
+  </div>
+</div>
