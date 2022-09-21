@@ -11,6 +11,7 @@ import { PageNotFoundComponent } from './pages/page-not-found/page-not-found.com
 import { DashboardComponent } from './pages/dashboard/dashboard.component';
 import { StoreModule } from '@ngrx/store';
 import { AppInterceptor } from './app.interceptor';
+import { GoogleChartsModule } from 'angular-google-charts';
 
 @NgModule({
   declarations: [
@@ -26,15 +27,15 @@ import { AppInterceptor } from './app.interceptor';
     HttpClientModule,
     FormsModule,
     ReactiveFormsModule,
+    GoogleChartsModule,
     StoreModule.forRoot({}, {}),
   ],
   providers: [
     {
       provide: HTTP_INTERCEPTORS,
       useClass: AppInterceptor,
-      multi: true
+      multi: true,
     },
-
   ],
   bootstrap: [AppComponent],
 })
