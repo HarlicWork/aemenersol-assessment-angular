@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Observable, of } from 'rxjs';
 import { AuthService } from 'src/app/services/auth.service';
 
 @Component({
@@ -7,11 +8,12 @@ import { AuthService } from 'src/app/services/auth.service';
   styleUrls: ['./dashboard.component.scss'],
 })
 export class DashboardComponent implements OnInit {
+  data$: Observable<any>;
   constructor(private auth: AuthService) {}
 
   ngOnInit() {
-    this.auth.getDashboardData().subscribe(data => {
-      console.log(data)
+    this.auth.getDashboardData().subscribe((data) => {
+      this.data$ = of(data);
     });
   }
 }
