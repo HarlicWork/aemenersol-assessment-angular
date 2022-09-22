@@ -12,6 +12,9 @@ import { DashboardComponent } from './pages/dashboard/dashboard.component';
 import { StoreModule } from '@ngrx/store';
 import { AppInterceptor } from './app.interceptor';
 import { GoogleChartsModule } from 'angular-google-charts';
+import { PieChartComponent } from './components/charts/pie-chart/pie-chart.component';
+import { ColumnChartComponent } from './components/charts/column-chart/column-chart.component';
+import { TableChartComponent } from './components/charts/table-chart/table-chart.component';
 
 @NgModule({
   declarations: [
@@ -19,6 +22,9 @@ import { GoogleChartsModule } from 'angular-google-charts';
     SignupComponent,
     PageNotFoundComponent,
     DashboardComponent,
+    PieChartComponent,
+    ColumnChartComponent,
+    TableChartComponent,
   ],
   imports: [
     BrowserModule,

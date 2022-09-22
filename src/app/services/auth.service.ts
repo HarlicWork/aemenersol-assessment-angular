@@ -3,6 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { BehaviorSubject, map, Observable, shareReplay, tap } from 'rxjs';
 import { User } from '../models/User';
 import { environment } from 'src/environments/environment';
+import { ChartData } from '../models/ChartData';
 
 @Injectable({
   providedIn: 'root',
@@ -10,6 +11,8 @@ import { environment } from 'src/environments/environment';
 export class AuthService {
   private subject = new BehaviorSubject<User>({ username: '', password: '' });
   user$: Observable<User> = this.subject.asObservable();
+
+  chartData: ChartData[];
 
   constructor(private http: HttpClient) {
     const token = localStorage.getItem('authToken');
@@ -47,6 +50,6 @@ export class AuthService {
   }
 
   getDashboardData() {
-    return this.http.get(environment.dashboardApi);
+    return this.http.get<ChartData>(environment.dashboardApi);
   }
 }

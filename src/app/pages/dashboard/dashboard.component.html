@@ -1,8 +1,18 @@
-<div class="card">
-  <h5 class="card-header d-flex justify-content-center">Donut Chart</h5>
-  <div id="piechart"></div>
+<div class="container-fluid">
+  <div class="row">
+    <div class="col m-3">
+      <app-pie-chart [title]="donutChart"></app-pie-chart>
+    </div>
+    <div class="col m-3">
+      <app-column-chart [title]="columnChart"></app-column-chart>
+    </div>
+  </div>
 </div>
 
-<!-- <div *ngIf="data$ | async as data">
-  <p>{{ data | json }}</p>
-</div> -->
+<div class="container-fluid">
+  <div class="row">
+    <div class="col m-3">
+      <app-table-chart [title]="tableChartTitle"></app-table-chart>
+    </div>
+  </div>
+</div>
